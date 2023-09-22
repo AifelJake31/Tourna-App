@@ -1,149 +1,246 @@
-import React from 'react'
-import "../App.css"
+import React, { useState } from "react";
 
-export default function doubleElimination() {
-    return (
-        <>
-            {/* START FIRST LAYER */}
-            <div className='flex w-screen'>
-                <div className='w-[20%] text-center'></div>
-                <div className='w-[20%] text-center'></div>
-                <div className='w-[19.9%] text-center'>
-                    <div className='w-[100%] border-black'>
-                        <div className='w-[100%] h-[100%] border-black'></div>
-                        <div className='w-[100%] h-[100%] border-r-2 border-black'></div>
-                    </div>
+function DoubleEliminationTournament() {
+  const [winnersBracket, setWinnersBracket] = useState([]);
+  const [winner, setWinner] = useState([])
+
+
+  let mockData = [
+    "jake",
+    "jajake",
+    "zed",
+    "zeder",
+    "sedder",
+    "sed",
+    "sed2",
+    "sed3",
+    "sed4",
+    "sed5",
+    "sed6",
+    "sed7",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "jake",
+    "jajake",
+    "zed",
+    "zeder",
+    "sedder",
+    "sed",
+    "sed2",
+    "sed3",
+    "sed4",
+    "sed5",
+    "sed6",
+    "sed7",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "jake",
+    "jajake",
+    "zed",
+    "zeder",
+    "sedder",
+    "sed",
+    "sed2",
+    "sed3",
+    "sed4",
+    "sed5",
+    "sed6",
+    "sed7",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "jake",
+    "jajake",
+    "zed",
+    "zeder",
+    "sedder",
+    "sed",
+    "sed2",
+    "sed3",
+    "sed4",
+    "sed5",
+    "sed6",
+    "sed7",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "jake",
+    "jajake",
+    "zed",
+    "zeder",
+    "sedder",
+    "sed",
+    "sed2",
+    "sed3",
+    "sed4",
+    "sed5",
+    "sed6",
+    "sed7",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "jake",
+    "jajake",
+    "zed",
+    "zeder",
+    "sedder",
+    "sed",
+    "sed2",
+    "sed3",
+    "sed4",
+    "sed5",
+    "sed6",
+    "sed7",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "sed8",
+    "sed9",
+    "sed10",
+    "sed11",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+    "sed12",
+    "sed13",
+    "sed14",
+    "sed15",
+
+  ];
+
+  const initialWinnersPlayers = Array.from({ length: mockData.length / 2 }, (_, i) => `Player ${i + 1}`);
+  const initialPlayers = mockData
+
+  const createInitialWinnersBracket = () => {
+    const matches = [];
+    for (let i = 0; i < initialPlayers.length; i += 2) {
+      matches.push([initialPlayers[i], initialPlayers[i + 1]]);
+    }
+    setWinnersBracket(matches);
+  };
+
+  const createWinnersBracket = () => {
+    const matches = [];
+    for (let i = 0; i < initialWinnersPlayers.length; i += 2) {
+      matches.push([initialWinnersPlayers[i], initialWinnersPlayers[i + 1]]);
+    }
+    setWinner(matches); 
+  };
+
+  const startTournament = () => {
+    createInitialWinnersBracket();
+    createWinnersBracket()
+  };
+
+  return (
+    <>
+
+      <button onClick={startTournament}>Start Tournament</button> 
+
+    
+        <div className="grid grid-cols-3">
+
+          {/* COLUMN 1 start */}
+        <div className="">
+          {winnersBracket.map((match, index) => (
+            <div key={index}>
+              <div className='flex w-[100%] h-[52px]'>
+                <div className='w-[85%]'>
+                  <div className='border-black border-2'>{match[0]}</div>
+                  <div className='border-x-2 border-black border-b-2'>{match[1]}</div>
                 </div>
-                <div className='w-[20.2%] flex flex-column justify-center text-center'>
-
-                    <div className='w-[100%] flex'>
-
-                        <div className='w-[100%] flex'>
-                            <div className='flex flex-col items-center w-[15%]'>
-                                <div className='w-[100%] border-b-2 border-black h-[50%]'></div>
-                                <div className='w-[100%] border-l-2 border-black h-[50%] ml-[0.5px]'></div>
-                            </div>
-                            <div className='w-[70%] border border-black'>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                            </div>
-                            <div className='flex flex-col items-center w-[15%]'>
-                                <div className='w-[100%] border-b-2 border-black h-[50%]'></div>
-                                <div className='w-[100%] border-r-2 border-black h-[50%] mr-[0.5px]'></div>
-                            </div>
-                        </div>
-
-
-                    </div>
-
-
-
+                <div className='w-[15%]'>
+                  <div className='h-[50%] border-r-2 border-black'></div>
+                  <div className='h-[50%] border-t-2  border-black'></div>
                 </div>
-                <div className='w-[19.9%] text-center'></div>
-                <div className='w-[20%] text-center'></div>
-                <div className='w-[20%] text-center'></div>
+              </div>
+
+              {/* SPACER */}
+              <div className='h-[200px] w-[100%] border-black '></div>
+
             </div>
-            {/* END FIRST LAYER */}
+          ))}
+          </div>
 
-            {/* START SECOND LAYER */}
-            <div className='flex w-screen'>
-                {/* FIRST */}
-                <div className='w-[20%] text-center'></div>
+          {/* COLUMN 1 end */}
 
-                {/* SECOND */}
-                <div className='w-[20%] text-center'></div>
+          {/* COLUMN 2 start */}
 
-                {/* THIRD */}
-                <div className='w-[20%] text-center'>
-                    <div className='w-[100%] flex'>
+          <div className="">
 
-                        <div className='w-[100%] flex'>
-                            <div className='flex items-center w-[15%]'>
-                                <div className='w-[100%] text-[0.8rem] border border-black h-[1px]'>
-                                </div>
-                            </div>
-                            <div className='w-[70%] border border-black'>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                            </div>
-                            <div className='flex items-center w-[15%]'>
-                                <div className='w-[100%] text-[0.8rem] border border-black h-[1px]'></div>
-                            </div>
-                        </div>
-                    </div>
+          <div className='h-[110px]'></div>
+            {
+            winner.map((winners, index) => (
+
+              <div key={index}>
+
+                <div className='flex w-[100%] h-[52px]'>
+
+                <div className='w-[15%]'>
+                    <div className='h-[50%]'></div>
+                    <div className='h-[50%] border-t-2 border-black'></div>
+                  </div>
+
+                  <div className='w-[85%]'>
+                    <div className='border-black border-2'>{winners[0]}</div>
+                    <div className='border-x-2 border-black border-b-2'>{winners[0]}</div>
+                  </div>
+          
                 </div>
 
-                {/* FOURTH */}
-                <div className='w-[20%] flex flex-column justify-center text-center border-x-2 border-black '>
+                {/* spacer */}
+                <div className='h-[450px] pt-3'>
+                
+                </div>
+
+            
 
                 </div>
 
-                {/* FIFTH */}
-                <div className='w-[20%] text-center'>
-                    <div className='w-[100%] flex'>
-
-                        <div className='w-[100%] flex'>
-                            <div className='flex items-center w-[15%]'>
-                                <div className='w-[100%] text-[0.8rem] border border-black h-[1px]'></div>
-                            </div>
-                            <div className='w-[70%] border border-black'>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                            </div>
-                            <div className='flex items-center w-[15%]'>
-                                <div className='w-[100%] text-[0.8rem] border border-black h-[1px]'></div>
-                            </div>
-                        </div>
+              ))
+            }
+          </div>
+          
+          <div></div>
+        </div>
 
 
-                    </div>
-                </div>
-
-                {/* SIXTH */}
-                <div className='w-[20%] text-center'></div>
-
-                {/* SEVENTH */}
-                <div className='w-[20%] text-center'></div>
-            </div>
-
-            {/* END SECOND LAYER */}
-
-            {/* THIRD LAYER */}
-            <div className='flex w-screen'>
-                {/* FIRST */}
-                <div className='w-[20%] text-center'></div>
-                {/* SECOND */}
-                <div className='w-[20%] text-center'></div>
-                {/* THIRD */}
-                <div className='w-[19.9%] text-center'></div>
-                {/* FOURTH */}
-                <div className='w-[20.2%] flex flex-column justify-center text-center'>
-
-                    <div className='w-[100%] flex'>
-
-                        <div className='w-[100%] flex'>
-                            <div className='flex flex-col items-center w-[15%]'>
-                                <div className='w-[100%] border-l-2 border-black h-[50%] ml-[0.5px]'></div>
-                                <div className='w-[100%] border-t-2 border-black h-[50%]'></div>
-                            </div>
-                            <div className='w-[70%] border border-black'>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                                <div className='w-[100%] border border-black'>Player 1</div>
-                            </div>
-                            <div className='flex flex-col items-center w-[15%]'>
-                                <div className='w-[100%] border-r-2 border-black h-[50%] '></div>
-                                <div className='w-[100%] border-t-2 border-black h-[50%]'></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {/* FIFTH */}
-                <div className='w-[19.9%] text-center'></div>
-                {/* SIXTH */}
-                <div className='w-[20%] text-center'></div>
-                {/* SEVENTH  */}
-                <div className='w-[20%] text-center'></div>
-            </div>
-        </>
-    )
+    
+    </>
+  );
 }
+
+export default DoubleEliminationTournament;
