@@ -3,8 +3,9 @@ import { BrowserRouter as Router } from "react-router-dom"
 import './App.css'
 
 //pages
-import DoubleElimination from "./pages/doubleElimination.jsx"
-
+import DoubleEliminationSixteen from "./pages/doubleEliminationSixteen.jsx";
+import DoubleEliminationThirthyTwo from "./pages/doubleEliminationThirtyTwo.jsx";
+import DoubleElimination from "./pages/doubleElimination.jsx";
 function App() {
 
 
@@ -12,7 +13,9 @@ function App() {
     <>
       <Router>
         <Routes>
-         <Route path="/aa" element={<DoubleElimination />} />
+         <Route path="/" element={<DoubleElimination />} />
+         <Route path="/aa" element={<DoubleEliminationSixteen />} />
+         <Route path="/bb" element={<DoubleEliminationThirthyTwo />} />
         </Routes>
       </Router>
     </>

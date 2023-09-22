@@ -3,3 +3,21 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.winner-bracket-container {
+  display: flex;
+  width: 100%;
+  height: 52px;
+}
+
+.main-content {
+  width: 70%;
+}
+
+.bottom-spacer {
+  width: 15%;
+}
+
+.spacer {
+  height: 160px;
+}
