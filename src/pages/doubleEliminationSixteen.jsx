@@ -35,10 +35,10 @@ function Tournament() {
     'Player5', 'Player6', 'Player7', 'Player8',
     'Player9', 'Player10', 'Player11', 'Player12',
     'Player13', 'Player14', 'Player15', 'Player16',
-    'Player17', 'Player18', 'Player19', 'Player20',
-    'Player21', 'Player22', 'Player23', 'Player24',
-    'Player25', 'Player26', 'Player27', 'Player28',
-    'Player', 'Player30', 'Player31', 'Player32',
+    // 'Player17', 'Player18', 'Player19', 'Player20',
+    // 'Player21', 'Player22', 'Player23', 'Player24',
+    // 'Player25', 'Player26', 'Player27', 'Player28',
+    // 'Player', 'Player30', 'Player31', 'Player32',
   ];
 
   const [winnersBracket, setWinnersBracket] = useState(initialPlayers);
